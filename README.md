@@ -11,3 +11,5 @@ To install all the necessary libraries run the following commands in a terminal:
   pip install git+https://github.com/sedthh/pyxelate.git --upgrade
   pip install opencv-python
 ```
+
+The end.
