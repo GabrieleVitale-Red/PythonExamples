@@ -34,7 +34,7 @@ def bitSampling(image):
 
     #3) transform image to pixel art using the learned color palette
     new_image = pyx.transform(img)
-    
+
     #save new image with 'skimage.io.imsave()'
     pathImage = folder_dir_destination+"\\"+image
     io.imsave(pathImage, new_image)
