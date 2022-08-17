@@ -1,56 +1,42 @@
-import os
-import cv2
-
-from os import listdir
-from skimage import io
-from pyxelate import Pyx
-
-#set the paths for the folders, source and destination
-folder_dir = "./testimages"
-folder_dir_destination = "./8bit/"
+import winsound
 
 def init():
-    # get the path for the source directory
-    for images in os.listdir(folder_dir):
-    
-        # check if the image ends with jpg
-        if (images.endswith(".jpg")):
-            bitSampling(images)
-        else:
-            print("No images fuond")
 
-def bitSampling(image):
-    
-    #load image with 'skimage.io.imread()'
-    img = io.imread(folder_dir+"\\"+image)  
-    downsample_by = 3  # new image will be 1/3th of the original in size
-    palette = 9  # find 9 colors
+    notes = {'a': 400,
+         'b': 500,
+         'c': 600,
+         'd': 650,
+         'e': 700,
+         'f': 750,
+         'g': 800,
+         'j': 850,
+         'k': 900,
+         'l': 950,
+         'm': 1000,
+         'n': 1050,
+         'o': 1100,
+         'p': 1150,
+         'q': 1200,
+         'r': 1300,
+         's': 1400,
+         't': 1500,
+         'u': 1600,
+         'v': 1700,
+         'u': 1800,
+         'w': 1900,
+         'x': 2000,
+         'y': 2100,
+         'z': 2000,
+         ' ': 100
+        }
 
-    #1) Instantiate Pyx transformer
-    pyx = Pyx(factor=downsample_by, palette=palette)
+    #get input from keyboards
+    keyPiano = input ("Please press  any sequence of keys: \n")
 
-    #2) fit an image, allow Pyxelate to learn the color palette
-    pyx.fit(img)
+    print(f"Here are the they you entered: {keyPiano} /nAnd hereit is your beep music!")
 
-    #3) transform image to pixel art using the learned color palette
-    new_image = pyx.transform(img)
-
-    #save new image with 'skimage.io.imsave()'
-    pathImage = folder_dir_destination+"\\"+image
-    io.imsave(pathImage, new_image)
-
-    # Read RGB image
-    imgToShow = cv2.imread(pathImage)
-    
-    # Output img with window name as 'image'
-    cv2.imshow("new", imgToShow)
-    
-    # Maintain output window utill
-    # user presses a key
-    cv2.waitKey(0)       
-    
-    # Destroying present windows on screen
-    cv2.destroyAllWindows()
+    for note in keyPiano:
+        winsound.Beep(notes[note], 1000)
 
 init()
 
