@@ -2,12 +2,15 @@ import winsound
 
 def init():
 
-    notes = {'a': 400,
-         'b': 500,
-         'c': 600,
-         'd': 650,
-         'e': 700,
-         'f': 750,
+    notes = {
+         'a': 150,
+         'b': 200,
+         'c': 300,
+         'd': 400,
+         'e': 450,
+         'f': 500,
+         'g': 600,
+         'g': 700,
          'g': 800,
          'j': 850,
          'k': 900,
@@ -36,7 +39,7 @@ def init():
     print(f"Here are the they you entered: {keyPiano} /nAnd hereit is your beep music!")
 
     for note in keyPiano:
-        winsound.Beep(notes[note], 1000)
+        winsound.Beep(notes[note], 200)
 
 init()
 
