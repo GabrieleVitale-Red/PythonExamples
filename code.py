@@ -39,7 +39,7 @@ def init():
     print(f"Here are the they you entered: {keyPiano} /nAnd hereit is your beep music!")
 
     for note in keyPiano:
-        winsound.Beep(notes[note], 200)
+        winsound.Beep(notes[note], 400)
 
 init()
 
